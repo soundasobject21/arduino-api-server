@@ -2,8 +2,6 @@
 
 Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-json-server) ⬅️
 
-> This repo is based on [jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku) and modified to closely correspond with [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-json-server)
-
 This repo is a fake REST API [json-server](https://github.com/typicode/json-server) with proto-data matching pins of an arduino. When running on a server, it can serve as a simple db for prototyping purposes.
 
 - [Simple Arduino JSON Server](#simple-arduino-json-server)
@@ -13,6 +11,7 @@ This repo is a fake REST API [json-server](https://github.com/typicode/json-serv
     - [Install and Configure Heroku](#install-and-configure-heroku)
     - [Useful Heroku commands](#useful-heroku-commands)
       - [How it works](#how-it-works)
+  - [Credits](#credits)
 
 ## Getting Started
 
@@ -154,3 +153,7 @@ You also have to make changes to the port, you can't hardcode a dev-port. But yo
 ```js
 const port = process.env.PORT || 8000;
 ```
+
+## Credits
+
+This work is based on [jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku) and modified to correspond with data modeled for an Arduino UNO
