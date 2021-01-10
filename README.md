@@ -1,6 +1,8 @@
 # Simple Arduino JSON Server
 
-This repo is based on [jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku) and modified to closely correspond with [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-json-server)
+Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-json-server) ⬅️
+
+> This repo is based on [jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku) and modified to closely correspond with [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-json-server)
 
 This repo is a fake REST API [json-server](https://github.com/typicode/json-server) with proto-data matching pins of an arduino. When running on a server, it can serve as a simple db for prototyping purposes.
 
@@ -8,7 +10,6 @@ This repo is a fake REST API [json-server](https://github.com/typicode/json-serv
   - [Getting Started](#getting-started)
   - [Run locally](#run-locally)
   - [Deploy to **Heroku**](#deploy-to-heroku)
-          - [Cons](#cons)
     - [Install and Configure Heroku](#install-and-configure-heroku)
     - [Useful Heroku commands](#useful-heroku-commands)
       - [How it works](#how-it-works)
@@ -21,7 +22,7 @@ This repo is a fake REST API [json-server](https://github.com/typicode/json-serv
 
 _the data structure will create `/analog` and `/digital` routes including all pins_
 
-```json
+```
 {
   "analog": [
     {
@@ -68,7 +69,7 @@ If you are testing locally, make sure to change your endpoints via the `.env` fi
 
 Heroku is a free hosting service for small projects. Easy to setup and deploy from the command line via _git_.
 
-###### Cons
+**Cons**
 
 - App has to sleep a couple of hours every day.
 - "Powers down" after 30 mins of inactivity. Starts back up when you visit the site but it takes a few extra seconds.
@@ -106,6 +107,8 @@ git push heroku main
 heroku open
 ```
 
+---
+
 ### Useful Heroku commands
 
 Now that you've set up, configured, and deployed to heroku, here are other heroku cli commands that may prove useful:
@@ -122,7 +125,7 @@ Restart dynos if you need a fresh database:
 heroku dyno:restart
 ```
 
-Forgot what URL your app has? Open it to find out:
+Forgot what your server's URL is? Open it to find out:
 
 ```bash
 heroku open
