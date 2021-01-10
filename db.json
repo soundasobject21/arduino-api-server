@@ -2,7 +2,7 @@
   "analog": [
     {
       "id": "A0",
-      "value": 0
+      "value": 1200
     },
     {
       "id": "A1",
