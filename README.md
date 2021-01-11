@@ -1,6 +1,6 @@
 # Simple Arduino JSON Server
 
-Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-json-server) ⬅️
+Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) ⬅️
 
 This repo is a fake REST API [json-server](https://github.com/typicode/json-server) with proto-data matching pins of an arduino. When running on a server, it can serve as a simple db for prototyping purposes.
 
