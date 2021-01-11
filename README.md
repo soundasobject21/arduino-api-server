@@ -17,7 +17,7 @@ This repo is a fake REST API [json-server](https://github.com/typicode/json-serv
 
 1. Clone this repo
 
-2 . The database structure is reflected in `db.json` and already corresponds to the pins on an Arduino UNO.
+2. The database structure is reflected in `db.json` and already corresponds to the pins on an Arduino UNO.
 
 _the data structure will create `/analog` and `/digital` routes including all pins_
 
@@ -78,29 +78,29 @@ Heroku is a free hosting service for small projects. Easy to setup and deploy fr
 
 ### Install and Configure Heroku
 
-1 . Create an account on [https://heroku.com](https://heroku.com)
+1. Create an account on [https://heroku.com](https://heroku.com)
 
-2 . Install the Heroku CLI on your computer: [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli)
+2. Install the Heroku CLI on your computer: [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli)
 
-3 . Connect the Heroku CLI to your account and follow the instructions on the command line:
+3. Connect the Heroku CLI to your account and follow the instructions on the command line:
 
 ```bash
 heroku login
 ```
 
-5 . Create a remote heroku project. This will create a project on Heroku with a random name. If you want to name your app you have to supply your own name like `heroku create project-name`:
+4. Create a remote heroku project. This will create a project on Heroku with a random name. If you want to name your app you have to supply your own name like `heroku create project-name`:
 
 ```bash
 heroku create
 ```
 
-6 . Push your app to **Heroku** (you will see a wall of code)
+5. Push your app to **Heroku** (you will see a wall of code)
 
 ```bash
 git push heroku main
 ```
 
-7 . Visit your newly create app by opening it via heroku. This URL will also be your `API_HOST` for use with [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api)
+6. Visit your newly create app by opening it via heroku. This URL will also be your `API_HOST` for use with [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api)
 
 ```bash
 heroku open
