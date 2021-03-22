@@ -19,24 +19,26 @@ This repo is a fake REST API [json-server](https://github.com/typicode/json-serv
 
 2. The database structure is reflected in `db.json` and already corresponds to the pins on an Arduino UNO.
 
-_the data structure will create `/analog` and `/digital` routes including all pins_
+_the data structure will create `/pins`, `/pins/analog` and `/pins/digital` endpoints_
 
 ```
 {
-  "analog": [
-    {
-      "id": "A0",
-      "value": 0
-    },
-    ...
-  ],
-  "digital": [
-    {
-      "id": "0",
-      "value": 0
-    },
-    ...
-  ]
+  "pins": {
+    "analog": [
+      {
+        "id": "A0",
+        "value": 0
+      },
+      ...
+    ],
+    "digital": [
+      {
+        "id": "0",
+        "value": 0
+      },
+      ...
+    ]
+  }
 }
 ```
 
