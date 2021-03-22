@@ -1,5 +1,33 @@
 {
-  "pins": {
+  "pins": [
+    {
+      "id": "analog",
+      "value": [
+        {
+          "id": "A0",
+          "value": 0
+        },
+        {
+          "id": "A1",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "digital",
+      "value": [
+        {
+          "id": "1",
+          "value": 0
+        },
+        {
+          "id": "2",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "pinsold": {
     "analog": [
       {
         "id": "A0",
