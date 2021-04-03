@@ -2,47 +2,68 @@
 
 Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) ⬅️
 
-This repo is a fake REST API [json-server](https://github.com/typicode/json-server) with proto-data matching pins of an arduino. When running on a server, it can serve as a simple db for prototyping purposes.
+This app uses [json-server](https://github.com/typicode/json-server) to create a mock REST API with endpoints corresponding to the pins on an [Arduino UNO](https://www.arduino.cc/). It can serve as a simple db for prototyping purposes.
 
-- [Simple Arduino JSON Server](#simple-arduino-json-server)
-  - [Getting Started](#getting-started)
-  - [Run locally](#run-locally)
-  - [Deploy to **Heroku**](#deploy-to-heroku)
-    - [Install and Configure Heroku](#install-and-configure-heroku)
-    - [Useful Heroku commands](#useful-heroku-commands)
-      - [How it works](#how-it-works)
-  - [Credits](#credits)
+Requirements:
+
+- node
+
+- [Getting Started](#getting-started)
+- [Available endpoints](#available-endpoints)
+- [Run locally](#run-locally)
+- [Deploy](#deploy)
+  - [Local Tunnel](#local-tunnel)
+  - [Alternate: Deploy to Heroku](#alternate-deploy-to-heroku)
 
 ## Getting Started
 
 1. Clone this repo
+2. Create your mock database
 
-2. The database structure is reflected in `db.json` and already corresponds to the pins on an Arduino UNO.
+   ```
+   cp db.json.dist db.json
+   ```
 
-_the data structure will create `/pins` and an endpoint for each pin at `/pins/Ax` or `/pins/Dx` (analog vs. digital)_
+   > Note, `db.json` will change depending on how you use it. If you need a fresh db, you can copy the .dist version again.
 
-```
-{
-  "pins": [
-   {
-     "id": "A0",
-     "value": 0
-   },
-   ...
-   {
-     "id": "D0",
-     "value": 0
-   },
-   ...
-  ]
-}
+## Available endpoints
+
+The database structure in [db.json.dist](db.json.dist) corresponds to the pins on an Arduino UNO and will generate endpoints at:
+
+```bash
+# all pins
+/pins
+
+# analog pins
+ /pins/A0
+ /pins/A1
+ /pins/A2
+ /pins/A3
+ /pins/A4
+ /pins/A5
+
+ # digital pins
+ /pins/D0
+ /pins/D1
+ /pins/D2
+ /pins/D3
+ /pins/D4
+ /pins/D5
+ /pins/D6
+ /pins/D7
+ /pins/D8
+ /pins/D9
+ /pins/D10
+ /pins/D11
+ /pins/D12
+ /pins/D13
 ```
 
 ---
 
 ## Run locally
 
-Before deploying to heroku, you may want to test your server locally. To do so:
+Before deploying, you may want to test your server locally. To do so:
 
 1. Install dependencies
 
@@ -58,15 +79,46 @@ npm start
 
 > server runs on `http://localhost:8000`<br>`^C` to stop the server
 
-If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) repo.
+If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) repo to point to `http://localhost:8000`
 
 ---
 
-## Deploy to **Heroku**
+## Deploy
+
+The app must be deployed for external sources to reach it. This repo details two different options for deployment:
+
+- Localtunnel.me
+- Heroku app
+
+### Local Tunnel
+
+Recommended for quick prototyping. Less overhead. Not recommended for production.
+
+1. install localtunnel globally
+
+```
+npm i -g localtunnel
+```
+
+2. Set up your local tunnel
+
+```
+lt --port 3000
+```
+
+--
+
+### Alternate: Deploy to Heroku
 
 Heroku is a free hosting service for small projects. Easy to setup and deploy from the command line via _git_.
 
-**Cons**
+Additional Requirements
+
+- git
+- heroku account
+- heroku cli
+
+**Limitations**
 
 - App has to sleep a couple of hours every day.
 - "Powers down" after 30 mins of inactivity. Starts back up when you visit the site but it takes a few extra seconds.
@@ -74,7 +126,7 @@ Heroku is a free hosting service for small projects. Easy to setup and deploy fr
 
 ---
 
-### Install and Configure Heroku
+#### Install and Configure Heroku
 
 1. Create an account on [https://heroku.com](https://heroku.com)
 
@@ -106,7 +158,7 @@ heroku open
 
 ---
 
-### Useful Heroku commands
+#### Useful Heroku commands
 
 Now that you've set up, configured, and deployed to heroku, here are other heroku cli commands that may prove useful:
 
@@ -136,7 +188,7 @@ heroku logs --tail
 
 ---
 
-#### How it works
+##### How it works
 
 Heroku will look for a startup-script, this is by default `npm start` so make sure you have that in your `package.json` (assuming your script is called `server.js`):
 
@@ -149,9 +201,9 @@ Heroku will look for a startup-script, this is by default `npm start` so make su
 You also have to make changes to the port, you can't hardcode a dev-port. But you can reference herokus port. So the code will have the following:
 
 ```js
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 ```
 
-## Credits
+---
 
-This work is based on [jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku) and modified to correspond with data modeled for an Arduino UNO
+This heroku documenation is modified from [jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku)
