@@ -4,16 +4,17 @@ Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com
 
 This app uses [json-server](https://github.com/typicode/json-server) to create a mock REST API with endpoints corresponding to the pins on an [Arduino UNO](https://www.arduino.cc/). It can serve as a simple db for prototyping purposes.
 
-Requirements:
-
-- node
-
+- [Requirements:](#requirements)
 - [Getting Started](#getting-started)
 - [Available endpoints](#available-endpoints)
 - [Run locally](#run-locally)
 - [Deploy](#deploy)
   - [Local Tunnel](#local-tunnel)
   - [Alternate: Deploy to Heroku](#alternate-deploy-to-heroku)
+
+## Requirements:
+
+- node
 
 ## Getting Started
 
