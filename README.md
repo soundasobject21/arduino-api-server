@@ -4,15 +4,16 @@ Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com
 
 This app uses [json-server](https://github.com/typicode/json-server) to create a mock REST API with endpoints corresponding to the pins on an [Arduino UNO](https://www.arduino.cc/). It can serve as a simple db for prototyping purposes.
 
-- [Requirements:](#requirements)
+It can be deployed to a server of your choosing, but this repo details two options for deployment: [Deploy as Local Tunnel](#deploy-as-local-tunnel) and [Deploy to Heroku](#alternate-deploy-to-heroku).
+
+- [Requirements](#requirements)
 - [Getting Started](#getting-started)
 - [Available endpoints](#available-endpoints)
 - [Run locally](#run-locally)
-- [Deploy](#deploy)
-  - [Local Tunnel](#local-tunnel)
-  - [Alternate: Deploy to Heroku](#alternate-deploy-to-heroku)
+- [Deploy as Local Tunnel](#deploy-as-local-tunnel)
+- [Alternate: Deploy to Heroku](#alternate-deploy-to-heroku)
 
-## Requirements:
+## Requirements
 
 - node
 
@@ -62,8 +63,6 @@ The database structure in [db.json.dist](db.json.dist) corresponds to the pins o
  /pins/D13
 ```
 
----
-
 ## Run locally
 
 Before deploying, you may want to test your server locally. To do so:
@@ -77,16 +76,7 @@ npm start
 
 If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) repo to point to `http://localhost:3000`
 
----
-
-## Deploy
-
-The app must be deployed for external sources to reach it. This repo details two different options for deployment:
-
-- Localtunnel.me
-- Heroku app
-
-### Local Tunnel
+## Deploy as Local Tunnel
 
 Recommended for quick prototyping. Less overhead. Not recommended for production.
 
@@ -102,9 +92,9 @@ npm i -g localtunnel
 lt --port 3000
 ```
 
---
+---
 
-### Alternate: Deploy to Heroku
+## Alternate: Deploy to Heroku
 
 Heroku is a free hosting service for small projects. Easy to setup and deploy from the command line via _git_.
 
@@ -120,9 +110,7 @@ Additional Requirements
 - "Powers down" after 30 mins of inactivity. Starts back up when you visit the site but it takes a few extra seconds.
 - Subject to usage limits: https://devcenter.heroku.com/articles/limits
 
----
-
-#### Install and Configure Heroku
+### Install and Configure Heroku
 
 1. Create an account on [https://heroku.com](https://heroku.com)
 
@@ -152,9 +140,7 @@ git push heroku main
 heroku open
 ```
 
----
-
-#### Useful Heroku commands
+### Useful Heroku commands
 
 Now that you've set up, configured, and deployed to heroku, here are other heroku cli commands that may prove useful:
 
@@ -182,9 +168,7 @@ For debugging if something went wrong:
 heroku logs --tail
 ```
 
----
-
-##### How it works
+### How it works
 
 Heroku will look for a startup-script, this is by default `npm start` so make sure you have that in your `package.json` (assuming your script is called `server.js`):
 
