@@ -4,7 +4,7 @@ Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com
 
 This app uses [json-server](https://github.com/typicode/json-server) to create a mock REST API with endpoints corresponding to the pins on an [Arduino UNO](https://www.arduino.cc/). It can serve as a simple db for prototyping purposes.
 
-It can be deployed to a server of your choosing, but this repo details two options for deployment: [Deploy as Local Tunnel](#deploy-as-local-tunnel) and [Deploy to Heroku](#alternate-deploy-to-heroku).
+It can be deployed to a server of your choosing, but this repo details two options for deployment: [Deploy as Local Tunnel](#deploy-as-local-tunnel) and [Deploy to Heroku](README_heroku.md).
 
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
@@ -72,118 +72,47 @@ Before deploying, you may want to test your server locally. To do so:
 npm start
 ```
 
-> server runs on `http://localhost:3000`<br>`^C` to stop the server
-
 If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) repo to point to `http://localhost:3000`
 
 ## Deploy as Local Tunnel
 
 Recommended for quick prototyping. Less overhead. Not recommended for production.
 
-1. install localtunnel globally
+1. Create your env file.
 
-```
-npm i -g localtunnel
+```bash
+cp .env.dist .env
 ```
 
-2. Set up your local tunnel
+Update with a random-ish subdomain. Example: `yourname-randomstring`. Note, it must be all lowercase and can only contains letters, numbers and hyphens.
 
+2. Run everything with the tunnel:
+
+```bash
+# start app on localhost and create tunnel in one step
+npm run start:tunnel
 ```
-lt --port 3000
+
+You can alternately run localhost first (for local testing) and then create the tunnel:
+
+```bash
+# start the app on localhost
+npm start
+
+# start the tunnel separately
+npm run tunnel
 ```
 
 ---
 
 ## Alternate: Deploy to Heroku
 
-Heroku is a free hosting service for small projects. Easy to setup and deploy from the command line via _git_.
+You may prefer to not run local tunnel for various reasons:
 
-Additional Requirements
+- You are entrusting an anonymous third-party with every request and response on your server.
+- Your entire service is exposed to the outside world.
+- You don't want to have to run the service yourself every time
 
-- git
-- heroku account
-- heroku cli
+To circumvent the above issues/concerns, you can opt deploy your app to Heroku or a server of your choice.
 
-**Limitations**
-
-- App has to sleep a couple of hours every day.
-- "Powers down" after 30 mins of inactivity. Starts back up when you visit the site but it takes a few extra seconds.
-- Subject to usage limits: https://devcenter.heroku.com/articles/limits
-
-### Install and Configure Heroku
-
-1. Create an account on [https://heroku.com](https://heroku.com)
-
-2. Install the Heroku CLI on your computer: [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli)
-
-3. Connect the Heroku CLI to your account and follow the instructions on the command line:
-
-```bash
-heroku login
-```
-
-4. Create a remote heroku project. This will create a project on Heroku with a random name. If you want to name your app you have to supply your own name like `heroku create project-name`:
-
-```bash
-heroku create
-```
-
-5. Push your app to **Heroku** (you will see a wall of code)
-
-```bash
-git push heroku main
-```
-
-6. Visit your newly create app by opening it via heroku. This URL will also be your `API_HOST` for use with [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api)
-
-```bash
-heroku open
-```
-
-### Useful Heroku commands
-
-Now that you've set up, configured, and deployed to heroku, here are other heroku cli commands that may prove useful:
-
-If you update the repo, you must deploy it again to heroku:
-
-```bash
-git push heroku main
-```
-
-Restart dynos if you need a fresh database:
-
-```bash
-heroku dyno:restart
-```
-
-Forgot what your server's URL is? Open it to find out:
-
-```bash
-heroku open
-```
-
-For debugging if something went wrong:
-
-```bash
-heroku logs --tail
-```
-
-### How it works
-
-Heroku will look for a startup-script, this is by default `npm start` so make sure you have that in your `package.json` (assuming your script is called `server.js`):
-
-```json
- "scripts": {
-    "start" : "node server.js"
- }
-```
-
-You also have to make changes to the port, you can't hardcode a dev-port. But you can reference herokus port. So the code will have the following:
-
-```js
-const port = process.env.PORT || 3000;
-```
-
----
-
-This heroku documenation is modified from [jesperorb/json-server-heroku](https://github.com/jesperorb/json-server-heroku)
+Learn how to [deploy this app to heroku](README_heroku.md).
