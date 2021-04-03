@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start:tunnel": "npm start & npm run tunnel",
     "build": "npm run create-db",
-    "create-db": "cp db.json.dist db.json"
+    "create-db": "cp db.json.dist db.json",
+    "tunnel": "node tunnel.js"
   },
   "keywords": [
     "arduino, json-server, heroku, node, REST API"
@@ -14,6 +16,7 @@
   "author": "Stephanie Cheng Smith",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "json-server": "^0.16.2",
     "localtunnel": "^2.0.1"
   }
