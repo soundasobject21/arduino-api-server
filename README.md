@@ -18,13 +18,15 @@ Requirements:
 ## Getting Started
 
 1. Clone this repo
-2. Create your mock database
+2. Create your mock database `db.json`
 
    ```
-   cp db.json.dist db.json
+   npm run create-db
    ```
 
-   > Note, `db.json` will change depending on how you use it. If you need a fresh db, you can copy the .dist version again.
+   You can use this command to start with a fresh database at anytime.
+
+   If you want to permanently alter the structure of the database, edit `db.json.dist`.
 
 ## Available endpoints
 
@@ -65,21 +67,14 @@ The database structure in [db.json.dist](db.json.dist) corresponds to the pins o
 
 Before deploying, you may want to test your server locally. To do so:
 
-1. Install dependencies
-
 ```bash
-npm install
-```
-
-2. Start the server
-
-```bash
+# serve at http://localhost:3000
 npm start
 ```
 
-> server runs on `http://localhost:8000`<br>`^C` to stop the server
+> server runs on `http://localhost:3000`<br>`^C` to stop the server
 
-If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) repo to point to `http://localhost:8000`
+If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) repo to point to `http://localhost:3000`
 
 ---
 

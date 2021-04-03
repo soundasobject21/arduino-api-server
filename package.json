@@ -1,15 +1,16 @@
 {
-  "name": "json-server-deploy",
+  "name": "arduino-json-server",
   "version": "1.0.0",
-  "description": "Simple json database to deploy to the host of your choice",
+  "description": "Simple json database modeled on Arduino pins to deploy to the host of your choice",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "create-db": "cp db.json.dist db.json"
   },
   "keywords": [
-    "json-server,heroku, node, REST API"
+    "arduino, json-server, heroku, node, REST API"
   ],
-  "author": "Jesper Orb",
+  "author": "Stephanie Cheng Smith",
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.16.2",
