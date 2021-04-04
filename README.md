@@ -1,6 +1,6 @@
 # Arduino API Server
 
-💡 Use with [stephiescastle/arduino-serial-fetch](https://github.com/stephiescastle/arduino-serial-fetch) to enable your Arduino to use this service.
+💡 Use with [arduino-serial-fetch](https://github.com/soundasobject21/arduino-serial-fetch) to enable your Arduino to use this service.
 
 ---
 
