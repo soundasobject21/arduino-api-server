@@ -1,28 +1,22 @@
-# Simple Arduino JSON Server
+# Arduino API Server
 
-<!-- TODO: Rename to arduino-api -->
+💡 Use with [stephiescastle/arduino-serial-fetch](https://github.com/stephiescastle/arduino-serial-fetch) to enable your Arduino to use this service.
 
-Corresponding API: ➡️ [stephiescastle/arduino-serial-fetch](https://github.com/stephiescastle/arduino-serial-fetch) ⬅️
+---
 
-This app uses [json-server](https://github.com/typicode/json-server) to create a mock REST API with endpoints corresponding to the pins on an [Arduino UNO](https://www.arduino.cc/). It can serve as a simple db for prototyping purposes.
+This repo uses [json-server](https://github.com/typicode/json-server) to create a mock REST API with endpoints corresponding to the pins on an [Arduino UNO](https://www.arduino.cc/). It can serve as a simple database for prototyping purposes.
 
-It can be deployed to a server of your choosing, but this repo details two options for deployment: [Deploy as Local Tunnel](#deploy-as-local-tunnel) and [Deploy to Heroku](README_heroku.md).
+It can be deployed to any nodejs-capable host, but this repo details two options for deployment: [Deploy as Local Tunnel](#deploy-as-local-tunnel) or [Deploy to Heroku](README_heroku.md).
 
-- [Requirements](#requirements)
 - [Getting Started](#getting-started)
 - [Available endpoints](#available-endpoints)
-- [Run locally](#run-locally)
 - [Deploy as Local Tunnel](#deploy-as-local-tunnel)
 - [Alternate: Deploy to Heroku](#alternate-deploy-to-heroku)
 
-## Requirements
-
-- node
-
 ## Getting Started
 
-1. Clone this repo
-2. Create your mock database `db.json`
+1. Download this repo or [use it as a template](https://github.com/stephiescastle/arduino-api-server/generate)
+2. Create your database
 
    ```
    npm run create-db
@@ -30,7 +24,16 @@ It can be deployed to a server of your choosing, but this repo details two optio
 
    You can use this command to start with a fresh database at anytime.
 
-   If you want to permanently alter the structure of the database, edit `db.json.dist`.
+   If you want to permanently alter the structure of the database (e.g. you are using a different Arduino model that has a different pin structure), edit `db.json.dist`.
+
+3. Start the service
+
+   ```bash
+   # serve at http://localhost:3000
+   npm start
+   ```
+
+   To stop the service, use ctrl-c (`^C`)
 
 ## Available endpoints
 
@@ -65,56 +68,47 @@ The database structure in [db.json.dist](db.json.dist) corresponds to the pins o
  /pins/D13
 ```
 
-## Run locally
-
-Before deploying, you may want to test your server locally. To do so:
-
-```bash
-# serve at http://localhost:3000
-npm start
-```
-
-If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-serial-fetch](https://github.com/stephiescastle/arduino-serial-fetch) repo to point to `http://localhost:3000`
-
 ## Deploy as Local Tunnel
 
-Recommended for quick prototyping. Less overhead. Not recommended for production.
+This repo uses [localtunnel](https://github.com/localtunnel/localtunnel) to publicly expose your localhost. This method requires less overhead and is recommended for quick prototyping as it does not require an actual host or heroku account. Not recommended for production. If you have concerns using this method, you can opt to [deploy to Heroku](#alternate-deploy-to-heroku) instead, or to any nodejs-capable host of your choosing.
 
 1. Create your env file.
 
-```bash
-cp .env.dist .env
-```
+   ```bash
+   cp .env.dist .env
+   ```
 
-Update with a random-ish subdomain. Example: `yourname-randomstring`. Note, it must be all lowercase and can only contains letters, numbers and hyphens.
+   Update `SUBDOMAIN` in `.env` with a random-ish name (this [random string generator](https://www.random.org/strings/?num=1&len=10&digits=on&loweralpha=on&unique=on&format=html&rnd=new) might come in handy). Example: `yourname-randomstring`. It must be all lowercase and can only contain letters, numbers and hyphens. It shouldn't be easily guessable since it will be a public service, and you also want to increase the chances that the subdomain you want isn't already claimed.
 
-2. Run everything with the tunnel:
+2. Start the service and create a tunnel:
 
-```bash
-# start app on localhost and create tunnel in one step
-npm run start:tunnel
-```
+   ```bash
+   # start app on localhost and create tunnel in one step
+   npm run start:tunnel
+   ```
 
-You can alternately run localhost first (for local testing) and then create the tunnel:
+   You can alternately run localhost first (for local testing) and then create the tunnel:
 
-```bash
-# start the app on localhost
-npm start
+   ```bash
+   # start the app on localhost
+   npm start
 
-# start the tunnel separately
-npm run tunnel
-```
+   # start the tunnel separately
+   npm run tunnel
+   ```
+
+   To stop the service and close the tunnel, enter ctrl-c (`^C`)
 
 ---
 
 ## Alternate: Deploy to Heroku
 
-You may prefer to not run local tunnel for various reasons:
+You may prefer to not use localtunnel for various reasons:
 
-- You are entrusting an anonymous third-party with every request and response on your server.
+- You are entrusting a third-party with every request and response on your server.
 - Your entire service is exposed to the outside world.
 - You don't want to have to run the service yourself every time
 
-To circumvent the above issues/concerns, you can opt deploy your app to Heroku or a server of your choice.
+To circumvent the above issues/concerns, you can opt deploy your app to Heroku or a host of your choice.
 
 Learn how to [deploy this app to heroku](README_heroku.md).
