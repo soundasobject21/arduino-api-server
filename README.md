@@ -16,7 +16,13 @@ It can be deployed to any nodejs-capable host, but this repo details two options
 ## Getting Started
 
 1. Download/clone this repo or [use it as a template](https://github.com/stephiescastle/arduino-api-server/generate)
-2. Create your database
+2. Install dependencies
+
+   ```
+   npm install
+   ```
+
+3. Create your database
 
    ```
    npm run create-db
@@ -26,7 +32,7 @@ It can be deployed to any nodejs-capable host, but this repo details two options
 
    If you want to permanently alter the structure of the database (e.g. you are using a different Arduino model that has a different pin structure), edit `db.json.dist`.
 
-3. Start the service
+4. Start the service
 
    ```bash
    # serve at http://localhost:3000
