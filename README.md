@@ -1,6 +1,8 @@
 # Simple Arduino JSON Server
 
-Corresponding API: ➡️ [stephiescastle/arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) ⬅️
+<!-- TODO: Rename to arduino-api -->
+
+Corresponding API: ➡️ [stephiescastle/arduino-serial-fetch](https://github.com/stephiescastle/arduino-serial-fetch) ⬅️
 
 This app uses [json-server](https://github.com/typicode/json-server) to create a mock REST API with endpoints corresponding to the pins on an [Arduino UNO](https://www.arduino.cc/). It can serve as a simple db for prototyping purposes.
 
@@ -72,7 +74,7 @@ Before deploying, you may want to test your server locally. To do so:
 npm start
 ```
 
-If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api) repo to point to `http://localhost:3000`
+If you are testing locally, make sure to change your endpoints via the `.env` file in your [arduino-serial-fetch](https://github.com/stephiescastle/arduino-serial-fetch) repo to point to `http://localhost:3000`
 
 ## Deploy as Local Tunnel
 

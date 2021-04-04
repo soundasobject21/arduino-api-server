@@ -1,5 +1,5 @@
 {
-  "name": "arduino-json-server",
+  "name": "arduino-api-server",
   "version": "1.0.0",
   "description": "Simple json database modeled on Arduino pins to deploy to the host of your choice",
   "main": "server.js",

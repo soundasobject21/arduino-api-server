@@ -38,7 +38,7 @@ heroku create
 git push heroku main
 ```
 
-6. Visit your newly create app by opening it via heroku. This URL will also be your `API_HOST` for use with [arduino-nodejs-api](https://github.com/stephiescastle/arduino-nodejs-api)
+6. Visit your newly create app by opening it via heroku. This URL will also be your `API_HOST` for use with [arduino-serial-fetch](https://github.com/stephiescastle/arduino-serial-fetch)
 
 ```bash
 heroku open
