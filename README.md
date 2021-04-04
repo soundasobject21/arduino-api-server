@@ -15,7 +15,7 @@ It can be deployed to any nodejs-capable host, but this repo details two options
 
 ## Getting Started
 
-1. Download/clone this repo or [use it as a template](https://github.com/stephiescastle/arduino-api-server/generate)
+1. Download/clone this repo or [use it as a template](https://github.com/soundasobject21/arduino-api-server/generate)
 2. Install dependencies
 
    ```
@@ -93,7 +93,7 @@ This repo uses [localtunnel](https://github.com/localtunnel/localtunnel) to publ
    npm run start:tunnel
    ```
 
-   You will see a message that will tell you both your localhost address and publicly accessible host address. If you are using [arduino-serial-fetch](https://github.com/stephiescastle/arduino-serial-fetch) locally to update your data, you can still use your localhost as the `API_HOST` (recommended). The public host is what you would send to your collaborators.
+   You will see a message that will tell you both your localhost address and publicly accessible host address. If you are using [arduino-serial-fetch](https://github.com/soundasobject21/arduino-serial-fetch) locally to update your data, you can still use your localhost as the `API_HOST` (recommended). The public host is what you would send to your collaborators.
 
    You can alternatively run localhost first and then create the tunnel separately:
 
