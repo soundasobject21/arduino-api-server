@@ -15,7 +15,7 @@ It can be deployed to any nodejs-capable host, but this repo details two options
 
 ## Getting Started
 
-1. Download this repo or [use it as a template](https://github.com/stephiescastle/arduino-api-server/generate)
+1. Download/clone this repo or [use it as a template](https://github.com/stephiescastle/arduino-api-server/generate)
 2. Create your database
 
    ```
