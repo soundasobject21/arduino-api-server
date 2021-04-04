@@ -8,4 +8,4 @@ server.use(middlewares);
 server.use(router);
 server.listen(port);
 
-console.log(`✅ serving at http://localhost:${port}`);
+console.log(`🔄 serving at http://localhost:${port}`);
