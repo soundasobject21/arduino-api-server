@@ -5,6 +5,13 @@ const localtunnel = require("localtunnel");
   const tunnel = await localtunnel({
     port: 3000,
     subdomain: process.env.SUBDOMAIN,
+    host: "https://serverless.social",
+  }).catch((err) => {
+    throw err;
+  });
+
+  tunnel.on("error", (err) => {
+    throw err;
   });
 
   // the assigned public url for your tunnel
