@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "start:tunnel": "npm start & npm run tunnel",
+    "windows-start:tunnel": "start npm run start && start npm run tunnel",
     "build": "npm run create-db",
     "create-db": "cp db.json.dist db.json",
     "tunnel": "node tunnel.js"
